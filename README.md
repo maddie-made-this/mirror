@@ -108,13 +108,12 @@ git clone <repo>
 cd mirror_app
 
 # Each component has its own .env.example — copy and fill in each one:
-cp .env.example .env                          # Neo4j password (used by docker-compose)
-cp backend/.env.example backend/.env          # LLM + embedding API keys, store URLs
+cp backend/.env.example backend/.env          # store credentials + LLM API keys + model routing
 cp frontend/.env.example frontend/.env.local  # API URL, Supabase public keys
 cp supabase/.env.example supabase/.env        # OAuth provider secrets
 
-docker compose up -d    # Neo4j + Qdrant
-supabase start          # Postgres + auth (requires the Supabase CLI)
+docker compose --env-file backend/.env up -d  # Neo4j + Qdrant (reads the Neo4j password)
+supabase start                                # Postgres + auth (requires the Supabase CLI)
 ```
 
 `docker compose` brings up Neo4j and Qdrant only. Postgres and auth come from Supabase, so the local stack needs the [Supabase CLI](https://supabase.com/docs/guides/cli) as well. The API keys the backend actually needs are documented in `backend/.env.example`.

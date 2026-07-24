@@ -5,11 +5,13 @@ services:
       - "7474:7474"   # browser UI
       - "7687:7687"   # bolt
     environment:
-      # Credentials come from the gitignored .env at the repo root — never
-      # committed. Copy .env.example to .env and set a value. The `:?` form makes
-      # compose fail loudly on an unset var rather than silently starting an
-      # open database.
-      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:?NEO4J_PASSWORD is required — copy .env.example to .env}
+      # Credentials come from the gitignored backend/.env — the same file the
+      # app reads, so the password exists in exactly one place:
+      #     docker compose --env-file backend/.env up -d
+      # Compose uses that file only for ${substitution}; nothing else in it
+      # reaches any container. The `:?` form makes compose fail loudly on an
+      # unset var rather than silently starting an open database.
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:?NEO4J_PASSWORD is required — run with --env-file backend/.env}
     volumes:
       - neo4j_data:/data
 
