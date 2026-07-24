@@ -1,0 +1,16 @@
+{
+  "name": "Mirror",
+  "short_name": "Mirror",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#132F5E",
+  "theme_color": "#132F5E",
+  "icons": [
+    {
+      "src": "/mirror-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

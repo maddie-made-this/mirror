@@ -1,0 +1,341 @@
+@import "tailwindcss";
+@source "../components";
+
+/* Stop iOS/Android pull-to-refresh from fighting chat scroll. */
+html, body { overscroll-behavior-y: contain; }
+
+/* =========================================
+   STANDARD & ACCESSIBILITY THEMES
+========================================= */
+
+/* Default (Root), Dark Theme, and System Default */
+:root, [data-theme="Dark"], [data-theme="Follow System Settings"] {
+  --background: #09090b;
+  --surface: #18181b;
+  --border: #27272a;          /* Neutral dark gray for settings menus & inputs */
+  --ai-border: #1e4d7b;       /* Deep blue for AI chat bubbles & landing page resting state */
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --sidebar-bg: #18181b;
+  --sidebar-fg: #f4f4f5;
+  --sidebar-muted: #a1a1aa;
+  --sidebar-hover: #27272a;
+  --sidebar-border: #27272a;  /* Neutral dark gray */
+  /* Blue, keyed to the Mirror mark (navy #132F5E / cyan #3ED8F0). A mid-blue is
+     used rather than the mark's cyan so white foreground text stays legible on
+     primary-filled buttons; the cyan reads as an accent, not a fill. */
+  --primary: #2563eb;         /* Blue for logos, buttons, and active states */
+  --primary-hover: #1d4ed8;
+  --primary-fg: #ffffff;
+  --header-bg: #18181b;
+  --header-fg: #f4f4f5;
+  --header-border: #27272a;   /* Neutral dark gray */
+  --bubble-bg: #1e40af;       /* Deep blue for user chat bubbles */
+  --bubble-border: #1e40af;
+  --bubble-fg: #ffffff;
+  --logo-color: var(--foreground);
+}
+
+/* Light Theme */
+[data-theme="Light"] {
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --ai-border: #e2e8f0;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --sidebar-bg: #0f172a;
+  --sidebar-fg: #ffffff;
+  --sidebar-muted: #94a3b8;
+  --sidebar-hover: #1e293b;
+  --sidebar-border: #1e293b;
+  --primary: #0f172a;
+  --primary-hover: #1e293b;
+  --primary-fg: #ffffff;
+  --header-bg: #ffffff;
+  --header-fg: #0f172a;
+  --header-border: #e2e8f0;
+  --bubble-bg: #0f172a;
+  --bubble-border: #0f172a;
+  --bubble-fg: #ffffff;
+  
+}
+
+[data-theme="High Contrast"] {
+  --background: #000000; --surface: #000000; --border: #ffffff; --ai-border: #ffffff; --foreground: #ffffff; --muted: #ffffff;
+  --sidebar-bg: #000000; --sidebar-fg: #ffffff; --sidebar-muted: #ffffff; --sidebar-hover: #333333; --sidebar-border: #ffffff;
+  --primary: #ffff00; --primary-hover: #ccaa00; --primary-fg: #000000;
+  --header-bg: #000000; --header-fg: #ffffff; --header-border: #ffffff;
+  --bubble-bg: #000000; --bubble-border: #ffff00; --bubble-fg: #ffff00;
+}
+
+[data-theme="Colorblind Safe (Protanopia)"] {
+  --background: #f3f4f6; --surface: #ffffff; --border: #d1d5db; --ai-border: #d1d5db; --foreground: #111827; --muted: #4b5563;
+  --sidebar-bg: #011f4b; --sidebar-fg: #ffffff; --sidebar-muted: #85a3c9; --sidebar-hover: #03396c; --sidebar-border: #03396c;
+  --primary: #005b96; --primary-hover: #03396c; --primary-fg: #ffffff;
+  --header-bg: #ffffff; --header-fg: #111827; --header-border: #d1d5db;
+  --bubble-bg: #005b96; --bubble-border: #005b96; --bubble-fg: #ffffff;
+}
+
+[data-theme="Colorblind Safe (Deuteranopia)"] {
+  --background: #f3f4f6; --surface: #ffffff; --border: #d1d5db; --ai-border: #d1d5db; --foreground: #111827; --muted: #4b5563;
+  --sidebar-bg: #03396c; --sidebar-fg: #ffffff; --sidebar-muted: #9bbce3; --sidebar-hover: #005b96; --sidebar-border: #005b96;
+  --primary: #0072b5; --primary-hover: #005b96; --primary-fg: #ffffff;
+  --header-bg: #ffffff; --header-fg: #111827; --header-border: #d1d5db;
+  --bubble-bg: #0072b5; --bubble-border: #0072b5; --bubble-fg: #ffffff;
+}
+
+/* =========================================
+   ROW 1: PASTELS (Light Base, Soft Primary)
+========================================= */
+
+[data-theme="Salmon"] {
+  --background: #fef2f2; --surface: #ffffff; --border: #fca5a5; --ai-border: #fca5a5; --foreground: #450a0a; --muted: #991b1b;
+  --sidebar-bg: #fef2f2; --sidebar-fg: #7f1d1d; --sidebar-muted: #f87171; --sidebar-hover: #fee2e2; --sidebar-border: #fca5a5;
+  --primary: #f87171; --primary-hover: #ef4444; --primary-fg: #ffffff;
+  --header-bg: #ffffff; --header-fg: #450a0a; --header-border: #fca5a5;
+  --bubble-bg: #f87171; --bubble-border: #f87171; --bubble-fg: #ffffff;
+}
+[data-theme="Peach"] {
+  --background: #fff7ed; --surface: #ffffff; --border: #fdba74; --ai-border: #fdba74; --foreground: #431407; --muted: #9a3412;
+  --sidebar-bg: #fff7ed; --sidebar-fg: #7c2d12; --sidebar-muted: #fb923c; --sidebar-hover: #ffedd5; --sidebar-border: #fdba74;
+  --primary: #fb923c; --primary-hover: #f97316; --primary-fg: #ffffff;
+  --header-bg: #ffffff; --header-fg: #431407; --header-border: #fdba74;
+  --bubble-bg: #fb923c; --bubble-border: #fb923c; --bubble-fg: #ffffff;
+}
+[data-theme="Butter"] {
+  --background: #fefce8; --surface: #ffffff; --border: #fde047; --ai-border: #fde047; --foreground: #422006; --muted: #854d0e;
+  --sidebar-bg: #fefce8; --sidebar-fg: #713f12; --sidebar-muted: #facc15; --sidebar-hover: #fef9c3; --sidebar-border: #fde047;
+  --primary: #facc15; --primary-hover: #eab308; --primary-fg: #422006;
+  --header-bg: #ffffff; --header-fg: #422006; --header-border: #fde047;
+  --bubble-bg: #facc15; --bubble-border: #facc15; --bubble-fg: #422006;
+}
+[data-theme="Mint"] {
+  --background: #f0fdf4; --surface: #ffffff; --border: #86efac; --ai-border: #86efac; --foreground: #052e16; --muted: #166534;
+  --sidebar-bg: #f0fdf4; --sidebar-fg: #14532d; --sidebar-muted: #4ade80; --sidebar-hover: #dcfce7; --sidebar-border: #86efac;
+  --primary: #4ade80; --primary-hover: #22c55e; --primary-fg: #ffffff;
+  --header-bg: #ffffff; --header-fg: #052e16; --header-border: #86efac;
+  --bubble-bg: #4ade80; --bubble-border: #4ade80; --bubble-fg: #ffffff;
+}
+[data-theme="Sky"] {
+  --background: #f0f9ff; --surface: #ffffff; --border: #bae6fd; --ai-border: #bae6fd; --foreground: #082f49; --muted: #0369a1;
+  --sidebar-bg: #f0f9ff; --sidebar-fg: #0c4a6e; --sidebar-muted: #38bdf8; --sidebar-hover: #e0f2fe; --sidebar-border: #bae6fd;
+  --primary: #38bdf8; --primary-hover: #0ea5e9; --primary-fg: #ffffff;
+  --header-bg: #ffffff; --header-fg: #082f49; --header-border: #bae6fd;
+  --bubble-bg: #38bdf8; --bubble-border: #38bdf8; --bubble-fg: #ffffff;
+}
+[data-theme="Periwinkle"] {
+  --background: #eef2ff; --surface: #ffffff; --border: #c7d2fe; --ai-border: #c7d2fe; --foreground: #1e1b4b; --muted: #3730a3;
+  --sidebar-bg: #eef2ff; --sidebar-fg: #312e81; --sidebar-muted: #818cf8; --sidebar-hover: #e0e7ff; --sidebar-border: #c7d2fe;
+  --primary: #818cf8; --primary-hover: #6366f1; --primary-fg: #ffffff;
+  --header-bg: #ffffff; --header-fg: #1e1b4b; --header-border: #c7d2fe;
+  --bubble-bg: #818cf8; --bubble-border: #818cf8; --bubble-fg: #ffffff;
+}
+[data-theme="Lavender"] {
+  --background: #faf5ff; --surface: #ffffff; --border: #e9d5ff; --ai-border: #e9d5ff; --foreground: #3b0764; --muted: #7e22ce;
+  --sidebar-bg: #faf5ff; --sidebar-fg: #581c87; --sidebar-muted: #c084fc; --sidebar-hover: #f3e8ff; --sidebar-border: #e9d5ff;
+  --primary: #c084fc; --primary-hover: #a855f7; --primary-fg: #ffffff;
+  --header-bg: #ffffff; --header-fg: #3b0764; --header-border: #e9d5ff;
+  --bubble-bg: #c084fc; --bubble-border: #c084fc; --bubble-fg: #ffffff;
+}
+[data-theme="Silver"] {
+  --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --ai-border: #e2e8f0; --foreground: #0f172a; --muted: #475569;
+  --sidebar-bg: #f8fafc; --sidebar-fg: #0f172a; --sidebar-muted: #94a3b8; --sidebar-hover: #f1f5f9; --sidebar-border: #e2e8f0;
+  --primary: #94a3b8; --primary-hover: #64748b; --primary-fg: #ffffff;
+  --header-bg: #ffffff; --header-fg: #0f172a; --header-border: #e2e8f0;
+  --bubble-bg: #94a3b8; --bubble-border: #94a3b8; --bubble-fg: #ffffff;
+}
+
+/* =========================================
+   ROW 2: STANDARD (Header Matches Sidebar)
+========================================= */
+
+[data-theme="Crimson"] {
+  --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --ai-border: #e2e8f0; --foreground: #0f172a; --muted: #64748b;
+  --sidebar-bg: #7f1d1d; --sidebar-fg: #fef2f2; --sidebar-muted: #fca5a5; --sidebar-hover: #991b1b; --sidebar-border: #991b1b;
+  --primary: #dc2626; --primary-hover: #b91c1c; --primary-fg: #ffffff;
+  --header-bg: #991b1b; --header-fg: #fef2f2; --header-border: #7f1d1d;
+  --bubble-bg: #dc2626; --bubble-border: #dc2626; --bubble-fg: #ffffff; --logo-color: #ffffff;
+}
+[data-theme="Tangerine"] {
+  --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --ai-border: #e2e8f0; --foreground: #0f172a; --muted: #64748b;
+  --sidebar-bg: #7c2d12; --sidebar-fg: #fff7ed; --sidebar-muted: #fdba74; --sidebar-hover: #9a3412; --sidebar-border: #9a3412;
+  --primary: #ea580c; --primary-hover: #c2410c; --primary-fg: #ffffff;
+  --header-bg: #9a3412; --header-fg: #fff7ed; --header-border: #7c2d12;
+  --bubble-bg: #ea580c; --bubble-border: #ea580c; --bubble-fg: #ffffff; --logo-color: #ffffff;
+}
+[data-theme="Mustard"] {
+  --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --ai-border: #e2e8f0; --foreground: #0f172a; --muted: #64748b;
+  --sidebar-bg: #713f12; --sidebar-fg: #fefce8; --sidebar-muted: #fde047; --sidebar-hover: #854d0e; --sidebar-border: #854d0e;
+  --primary: #ca8a04; --primary-hover: #a16207; --primary-fg: #ffffff;
+  --header-bg: #854d0e; --header-fg: #fefce8; --header-border: #713f12;
+  --bubble-bg: #ca8a04; --bubble-border: #ca8a04; --bubble-fg: #ffffff; --logo-color: #ffffff;
+}
+[data-theme="Emerald"] {
+  --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --ai-border: #e2e8f0; --foreground: #0f172a; --muted: #64748b;
+  --sidebar-bg: #14532d; --sidebar-fg: #f0fdf4; --sidebar-muted: #86efac; --sidebar-hover: #166534; --sidebar-border: #166534;
+  --primary: #16a34a; --primary-hover: #15803d; --primary-fg: #ffffff;
+  --header-bg: #166534; --header-fg: #f0fdf4; --header-border: #14532d;
+  --bubble-bg: #16a34a; --bubble-border: #16a34a; --bubble-fg: #ffffff; --logo-color: #ffffff;
+}
+[data-theme="Cobalt"] {
+  --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --ai-border: #e2e8f0; --foreground: #0f172a; --muted: #64748b;
+  --sidebar-bg: #1e3a8a; --sidebar-fg: #eff6ff; --sidebar-muted: #93c5fd; --sidebar-hover: #1d4ed8; --sidebar-border: #1d4ed8;
+  --primary: #2563eb; --primary-hover: #1d4ed8; --primary-fg: #ffffff;
+  --header-bg: #1d4ed8; --header-fg: #eff6ff; --header-border: #1e3a8a;
+  --bubble-bg: #2563eb; --bubble-border: #2563eb; --bubble-fg: #ffffff; --logo-color: #ffffff;
+}
+[data-theme="Sapphire"] {
+  --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --ai-border: #e2e8f0; --foreground: #0f172a; --muted: #64748b;
+  --sidebar-bg: #312e81; --sidebar-fg: #eef2ff; --sidebar-muted: #a5b4fc; --sidebar-hover: #3730a3; --sidebar-border: #3730a3;
+  --primary: #4f46e5; --primary-hover: #4338ca; --primary-fg: #ffffff;
+  --header-bg: #3730a3; --header-fg: #eef2ff; --header-border: #312e81;
+  --bubble-bg: #4f46e5; --bubble-border: #4f46e5; --bubble-fg: #ffffff; --logo-color: #ffffff;
+}
+[data-theme="Plum"] {
+  --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --ai-border: #e2e8f0; --foreground: #0f172a; --muted: #64748b;
+  --sidebar-bg: #581c87; --sidebar-fg: #faf5ff; --sidebar-muted: #d8b4fe; --sidebar-hover: #6b21a8; --sidebar-border: #6b21a8;
+  --primary: #9333ea; --primary-hover: #7e22ce; --primary-fg: #ffffff;
+  --header-bg: #6b21a8; --header-fg: #faf5ff; --header-border: #581c87;
+  --bubble-bg: #9333ea; --bubble-border: #9333ea; --bubble-fg: #ffffff; --logo-color: #ffffff;
+}
+[data-theme="Slate"] {
+  --background: #f8fafc; --surface: #ffffff; --border: #e2e8f0; --ai-border: #e2e8f0; --foreground: #0f172a; --muted: #64748b;
+  --sidebar-bg: #0f172a; --sidebar-fg: #f8fafc; --sidebar-muted: #94a3b8; --sidebar-hover: #1e293b; --sidebar-border: #1e293b;
+  --primary: #475569; --primary-hover: #334155; --primary-fg: #ffffff;
+  --header-bg: #1e293b; --header-fg: #f8fafc; --header-border: #0f172a;
+  --bubble-bg: #475569; --bubble-border: #475569; --bubble-fg: #ffffff; --logo-color: #ffffff;
+}
+
+/* =========================================
+   ROW 3: NEON (Solid Neon Bubbles, Black Text)
+========================================= */
+
+[data-theme="Ruby"] {
+  --background: #111111; --surface: #000000; --border: #330000; --ai-border: #660000; --foreground: #ffffff; --muted: #999999;
+  --sidebar-bg: #000000; --sidebar-fg: #ffffff; --sidebar-muted: #666666; --sidebar-hover: #111111; --sidebar-border: #330000;
+  --primary: #ff0000; --primary-hover: #cc0000; --primary-fg: #000000;
+  --header-bg: #000000; --header-fg: #ffffff; --header-border: #330000;
+  --bubble-bg: #ff0000; --bubble-border: #ff0000; --bubble-fg: #000000;
+}
+[data-theme="Neon Orange"] {
+  --background: #111111; --surface: #000000; --border: #331400; --ai-border: #662900; --foreground: #ffffff; --muted: #999999;
+  --sidebar-bg: #000000; --sidebar-fg: #ffffff; --sidebar-muted: #666666; --sidebar-hover: #111111; --sidebar-border: #331400;
+  --primary: #ff6600; --primary-hover: #cc5200; --primary-fg: #000000;
+  --header-bg: #000000; --header-fg: #ffffff; --header-border: #331400;
+  --bubble-bg: #ff6600; --bubble-border: #ff6600; --bubble-fg: #000000;
+}
+[data-theme="Cyber Yellow"] {
+  --background: #111111; --surface: #000000; --border: #332b00; --ai-border: #665500; --foreground: #ffffff; --muted: #999999;
+  --sidebar-bg: #000000; --sidebar-fg: #ffffff; --sidebar-muted: #666666; --sidebar-hover: #111111; --sidebar-border: #332b00;
+  --primary: #ffd700; --primary-hover: #ccac00; --primary-fg: #000000;
+  --header-bg: #000000; --header-fg: #ffffff; --header-border: #332b00;
+  --bubble-bg: #ffd700; --bubble-border: #ffd700; --bubble-fg: #000000;
+}
+[data-theme="Lime"] {
+  --background: #111111; --surface: #000000; --border: #003300; --ai-border: #006600; --foreground: #ffffff; --muted: #999999;
+  --sidebar-bg: #000000; --sidebar-fg: #ffffff; --sidebar-muted: #666666; --sidebar-hover: #111111; --sidebar-border: #003300;
+  --primary: #00ff00; --primary-hover: #00cc00; --primary-fg: #000000;
+  --header-bg: #000000; --header-fg: #ffffff; --header-border: #003300;
+  --bubble-bg: #00ff00; --bubble-border: #00ff00; --bubble-fg: #000000;
+}
+[data-theme="Cyan"] {
+  --background: #111111; --surface: #000000; --border: #003333; --ai-border: #006666; --foreground: #ffffff; --muted: #999999;
+  --sidebar-bg: #000000; --sidebar-fg: #ffffff; --sidebar-muted: #666666; --sidebar-hover: #111111; --sidebar-border: #003333;
+  --primary: #00ffff; --primary-hover: #00cccc; --primary-fg: #000000;
+  --header-bg: #000000; --header-fg: #ffffff; --header-border: #003333;
+  --bubble-bg: #00ffff; --bubble-border: #00ffff; --bubble-fg: #000000;
+}
+[data-theme="Electric Blue"] {
+  --background: #111111; --surface: #000000; --border: #000033; --ai-border: #000066; --foreground: #ffffff; --muted: #999999;
+  --sidebar-bg: #000000; --sidebar-fg: #ffffff; --sidebar-muted: #666666; --sidebar-hover: #111111; --sidebar-border: #000033;
+  --primary: #0000ff; --primary-hover: #0000cc; --primary-fg: #000000;
+  --header-bg: #000000; --header-fg: #ffffff; --header-border: #000033;
+  --bubble-bg: #0000ff; --bubble-border: #0000ff; --bubble-fg: #000000;
+}
+[data-theme="Fuchsia"] {
+  --background: #111111; --surface: #000000; --border: #330033; --ai-border: #660066; --foreground: #ffffff; --muted: #999999;
+  --sidebar-bg: #000000; --sidebar-fg: #ffffff; --sidebar-muted: #666666; --sidebar-hover: #111111; --sidebar-border: #330033;
+  --primary: #ff00ff; --primary-hover: #cc00cc; --primary-fg: #000000;
+  --header-bg: #000000; --header-fg: #ffffff; --header-border: #330033;
+  --bubble-bg: #ff00ff; --bubble-border: #ff00ff; --bubble-fg: #000000;
+}
+[data-theme="Charcoal"] {
+  --background: #1a1a1a; --surface: #000000; --border: #333333; --ai-border: #666666; --foreground: #ffffff; --muted: #a1a1aa;
+  --sidebar-bg: #000000; --sidebar-fg: #ffffff; --sidebar-muted: #71717a; --sidebar-hover: #1a1a1a; --sidebar-border: #333333;
+  --primary: #a1a1aa; --primary-hover: #d4d4d8; --primary-fg: #000000;
+  --header-bg: #000000; --header-fg: #ffffff; --header-border: #333333;
+  --bubble-bg: #a1a1aa; --bubble-border: #a1a1aa; --bubble-fg: #000000;
+}
+/* =========================================
+   CUSTOM ICON HOVER ANIMATIONS
+========================================= */
+
+@keyframes typingBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-3px); opacity: 1; }
+}
+
+/* In-bubble assistant typing indicator (TypingDots). Always animating, three
+   dots staggered by inline animation-delay. */
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: scale(0.6); opacity: 0.4; }
+  30%           { transform: scale(1);   opacity: 1;   }
+}
+.animate-typing-dot { animation: typing-dot 1.2s infinite ease-in-out; }
+
+.group:hover .dot-1 { animation: typingBounce 1.5s infinite ease-in-out; }
+.group:hover .dot-2 { animation: typingBounce 1.5s infinite ease-in-out 0.3s; }
+.group:hover .dot-3 { animation: typingBounce 1.5s infinite ease-in-out 0.6s; }
+
+
+/* Dynamic Theme-Aware Scrollbars */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 10px;
+  border: 3px solid var(--background); /* Creates a nice padded look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--muted);
+}
+
+/* Firefox Support */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--border) var(--background);
+}
+@theme {
+  /* Noticeable scale and opacity change for the sequence */
+  --animate-sparkle-pulse: sparkle-sequence 1.1s ease-in-out infinite;
+  @keyframes sparkle-sequence {
+    0%, 100% { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+    50% { 
+      transform: scale(1.4); 
+      opacity: 0.6; 
+    } 
+  }
+}
+/* --- Force-graph touch handling -------------------------------------------
+   `touch-action` is NOT an inherited property, so setting it on a wrapper does
+   nothing for the <canvas> react-force-graph creates inside its own container.
+   It has to be applied to the canvas itself, or the browser claims single-finger
+   drags for page scrolling and d3-zoom only ever sees the pinch — the exact
+   symptom of "mobile can zoom but not pan". */
+.force-graph-container,
+.force-graph-container canvas {
+  touch-action: none;
+  -ms-touch-action: none;
+}
