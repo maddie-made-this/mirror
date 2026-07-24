@@ -1,0 +1,42 @@
+# misc
+.DS_Store
+*.pem
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+
+# env files — real secrets never committed, but the templates are
+.env*
+!.env.example
+!**/.env.example
+
+# scripts
+/scripts/
+
+# local dev snapshots (scripts/backup-local.sh) — these contain a Postgres dump
+# with auth rows plus the verbatim text of every extracted mention, i.e. real
+# personal data. Never publishable.
+/backups/
+
+# staging
+/staging/
+
+# user-simulator transcripts (test harness output)
+backend/scripts/sim_runs/
+
+#claude
+/.claude/
+claude.md
+supabase/.temp/
+supabase/.branches/

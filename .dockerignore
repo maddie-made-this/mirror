@@ -1,0 +1,37 @@
+# Build context exclusions.
+#
+# __pycache__ matters beyond image size: stale .pyc files keep the docstrings of
+# whatever source compiled them, so a bytecode file can outlive an edit to the
+# .py it came from and carry the old text into an image.
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+.venv/
+venv/
+node_modules/
+.next/
+dist/
+build/
+
+.git/
+.github/
+.claude/
+
+# Local-only trees.
+staging/
+backups/
+scripts/
+
+# Secrets never belong in a build context; the .example templates are fine.
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+*.log
+.DS_Store
