@@ -1,0 +1,275 @@
+{
+  "_comment": "PLACEHOLDER demo vocabulary — intellectual/creative engagement angles. Exercises the tier-2 classifier; not a finished taxonomy.",
+  "angles": [
+    {
+      "key": "grasping_a_whole_system",
+      "name": "grasping a whole system",
+      "definition": "The click when scattered pieces resolve into one structure you can hold at once. The pleasure is the resolution — the moment the parts stop being a list and become a shape.",
+      "felt_distinction_from_neighbors": "Distinct from mastering-a-technique (procedural — knowing how to do the steps) and from completing-the-collection (accumulation without structure). Here the payoff is that the whole becomes graspable, not that it becomes complete.",
+      "trigger_phrasings": [
+        "how it all fits together",
+        "the whole picture clicked",
+        "the underlying pattern",
+        "it finally made sense as one thing"
+      ],
+      "related_concepts": [
+        "systems-thinking",
+        "architecture",
+        "mental-models",
+        "synthesis"
+      ]
+    },
+    {
+      "key": "chasing_an_anomaly",
+      "name": "chasing an anomaly",
+      "definition": "The pull of the thing that doesn't fit — the exception, the glitch, the detail that shouldn't be there. Attention snags on the discrepancy and won't let go.",
+      "felt_distinction_from_neighbors": "Distinct from grasping-a-whole-system: there the pleasure is resolution, here it is the unresolved snag itself. Distinct from following-a-thread-to-its-end, which follows a through-line rather than a rupture.",
+      "trigger_phrasings": [
+        "that doesn't add up",
+        "something's off",
+        "why would it do that",
+        "wait, that shouldn't happen"
+      ],
+      "related_concepts": [
+        "debugging",
+        "mysteries",
+        "edge-cases",
+        "anomaly-detection"
+      ]
+    },
+    {
+      "key": "making_the_unspoken_explicit",
+      "name": "making the unspoken explicit",
+      "definition": "Naming a thing everyone feels but no one has articulated; giving structure to the tacit. The satisfaction is in the words finally existing.",
+      "felt_distinction_from_neighbors": "Distinct from the-pleasure-of-the-right-frame (which makes a problem tractable) — here nothing becomes easier, it becomes SAYABLE. Distinct from refining-toward-precision, which sharpens language that already exists.",
+      "trigger_phrasings": [
+        "could never put it in words until",
+        "someone finally said it",
+        "there's no word for this but",
+        "that's exactly the thing nobody talks about"
+      ],
+      "related_concepts": [
+        "criticism",
+        "theory-building",
+        "taxonomy",
+        "articulation"
+      ]
+    },
+    {
+      "key": "inhabiting_another_mind",
+      "name": "inhabiting another mind",
+      "definition": "Temporarily thinking as someone else would — a character, an author, a historical figure. The interest is in the occupancy, not the observation.",
+      "felt_distinction_from_neighbors": "Distinct from making-the-unspoken-explicit, which analyzes from outside; here you are inside the frame, reasoning from their premises. Distinct from seeing-through-the-official-story, which is suspicious of the other mind rather than resident in it.",
+      "trigger_phrasings": [
+        "what would they have thought",
+        "getting into their head",
+        "from where they were standing it makes sense",
+        "how did this look to them"
+      ],
+      "related_concepts": [
+        "fiction",
+        "biography",
+        "perspective-taking",
+        "intellectual-history"
+      ]
+    },
+    {
+      "key": "refining_toward_precision",
+      "name": "refining toward precision",
+      "definition": "The last 10% — tightening, cutting, getting the phrasing or the proof exactly right. The gap between nearly-right and right is where the whole interest lives.",
+      "felt_distinction_from_neighbors": "Distinct from building-something-that-works (function, not polish) and from getting-the-texture-right (authenticity, not correctness). Here the target is exactness.",
+      "trigger_phrasings": [
+        "almost but not quite",
+        "one more pass",
+        "the exact right word",
+        "it's still a little loose"
+      ],
+      "related_concepts": [
+        "editing",
+        "craft",
+        "minimalism",
+        "rigor"
+      ]
+    },
+    {
+      "key": "following_a_thread_to_its_end",
+      "name": "following a thread to its end",
+      "definition": "The compulsion to chase an idea through every implication, wherever it leads — including somewhere inconvenient.",
+      "felt_distinction_from_neighbors": "Distinct from chasing-an-anomaly: there the object is a snag, here it is a through-line that keeps going. Distinct from dismantling-to-understand, which goes down into a thing rather than onward from it.",
+      "trigger_phrasings": [
+        "and that means",
+        "which leads to",
+        "all the way down",
+        "if that's true then this has to be too"
+      ],
+      "related_concepts": [
+        "deduction",
+        "worldbuilding",
+        "rabbit-holes",
+        "implication"
+      ]
+    },
+    {
+      "key": "seeing_through_the_official_story",
+      "name": "seeing through the official story",
+      "definition": "The draw of the hidden mechanism under the stated one — what is really going on beneath the surface account.",
+      "felt_distinction_from_neighbors": "Distinct from dismantling-to-understand (which takes apart a thing that isn't hiding anything) and from chasing-an-anomaly (a detail that doesn't fit, rather than a story that is a front).",
+      "trigger_phrasings": [
+        "the real reason",
+        "what they're not saying",
+        "follow the incentives",
+        "that's the stated purpose, but"
+      ],
+      "related_concepts": [
+        "analysis",
+        "skepticism",
+        "systems-of-power",
+        "incentives"
+      ]
+    },
+    {
+      "key": "building_something_that_works",
+      "name": "building something that works",
+      "definition": "The satisfaction of a thing you made actually functioning — the test passing, the machine running, the thing doing what it was for.",
+      "felt_distinction_from_neighbors": "Distinct from refining-toward-precision, which is polish on something already working; here the whole event is the transition from not-working to working.",
+      "trigger_phrasings": [
+        "and it works",
+        "watch this run",
+        "I built a thing",
+        "it actually does the thing now"
+      ],
+      "related_concepts": [
+        "engineering",
+        "making",
+        "prototyping",
+        "craft"
+      ]
+    },
+    {
+      "key": "holding_two_opposed_ideas",
+      "name": "holding two opposed ideas",
+      "definition": "The tension of a genuine paradox — both true, and the interest is precisely in not collapsing it to one side.",
+      "felt_distinction_from_neighbors": "Distinct from the-pleasure-of-the-right-frame, which dissolves the difficulty; here dissolving it would destroy the thing worth having. Distinct from finding-the-load-bearing-piece, which resolves toward a single crux.",
+      "trigger_phrasings": [
+        "and yet",
+        "both at once",
+        "the tension between",
+        "it's true in both directions"
+      ],
+      "related_concepts": [
+        "dialectic",
+        "ambiguity",
+        "essaying",
+        "paradox"
+      ]
+    },
+    {
+      "key": "finding_the_load_bearing_piece",
+      "name": "finding the load-bearing piece",
+      "definition": "Locating the one element everything else depends on — the crux, the keystone, the thing that if wrong makes the rest wrong.",
+      "felt_distinction_from_neighbors": "Distinct from grasping-a-whole-system (the shape of everything) — here it is the single point of maximum leverage. Distinct from holding-two-opposed-ideas, which refuses a single resolution.",
+      "trigger_phrasings": [
+        "the whole thing rests on",
+        "the real question is",
+        "if this is wrong then",
+        "everything downstream depends on this"
+      ],
+      "related_concepts": [
+        "first-principles",
+        "debugging",
+        "prioritization",
+        "leverage"
+      ]
+    },
+    {
+      "key": "watching_a_pattern_repeat",
+      "name": "watching a pattern repeat",
+      "definition": "Recognizing the same shape across unrelated domains — the isomorphism. The interest is in the recurrence itself.",
+      "felt_distinction_from_neighbors": "Distinct from grasping-a-whole-system, which is structure WITHIN one thing; here the structure is the correspondence BETWEEN things that have no business matching.",
+      "trigger_phrasings": [
+        "it's the same thing as",
+        "this rhymes with",
+        "same pattern, different field",
+        "that's just X in disguise"
+      ],
+      "related_concepts": [
+        "analogy",
+        "abstraction",
+        "cross-disciplinary-thinking",
+        "isomorphism"
+      ]
+    },
+    {
+      "key": "getting_the_texture_right",
+      "name": "getting the texture right",
+      "definition": "Fidelity to how a thing actually feels or sounds — the specific, lived detail chosen over the generic stand-in.",
+      "felt_distinction_from_neighbors": "Distinct from refining-toward-precision: that one chases correctness, this one chases authenticity. A sentence can be exactly correct and still have the wrong texture.",
+      "trigger_phrasings": [
+        "that's exactly how it feels",
+        "the real texture of",
+        "not generic",
+        "that's not how anyone actually talks"
+      ],
+      "related_concepts": [
+        "description",
+        "voice",
+        "craft",
+        "specificity"
+      ]
+    },
+    {
+      "key": "dismantling_to_understand",
+      "name": "dismantling to understand",
+      "definition": "Taking a thing apart to see how it works, even at the cost of the thing. The knowledge is worth the breakage.",
+      "felt_distinction_from_neighbors": "Distinct from seeing-through-the-official-story, which assumes something is concealed; here nothing is hidden — it is just closed, and you want it open. Distinct from following-a-thread-to-its-end, which moves outward rather than inward.",
+      "trigger_phrasings": [
+        "how does this actually work",
+        "take it apart",
+        "reverse-engineer",
+        "what's going on inside it"
+      ],
+      "related_concepts": [
+        "analysis",
+        "teardown",
+        "curiosity",
+        "mechanism"
+      ]
+    },
+    {
+      "key": "the_pleasure_of_the_right_frame",
+      "name": "the pleasure of the right frame",
+      "definition": "When a reframe suddenly makes a hard thing tractable — the problem dissolving under a better lens rather than yielding to force.",
+      "felt_distinction_from_neighbors": "Distinct from grasping-a-whole-system (seeing the structure that is already there) — here you SUPPLY a structure that was not given. Distinct from holding-two-opposed-ideas, which values the difficulty that this one removes.",
+      "trigger_phrasings": [
+        "if you think of it as",
+        "the trick is to see it",
+        "reframe",
+        "once you look at it that way it's easy"
+      ],
+      "related_concepts": [
+        "problem-solving",
+        "models",
+        "insight",
+        "reframing"
+      ]
+    },
+    {
+      "key": "completing_the_collection",
+      "name": "completing the collection",
+      "definition": "The itch to close a set — the last piece, the full map, the gap filled. The set being finished is the point.",
+      "felt_distinction_from_neighbors": "Distinct from grasping-a-whole-system: that wants structure, this wants completeness. A collection can be complete and shapeless and still scratch this itch.",
+      "trigger_phrasings": [
+        "just need the last",
+        "fill in the gap",
+        "complete the set",
+        "there's one missing"
+      ],
+      "related_concepts": [
+        "mastery",
+        "curation",
+        "thoroughness",
+        "completeness"
+      ]
+    }
+  ]
+}
