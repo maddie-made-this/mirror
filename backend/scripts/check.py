@@ -37,19 +37,39 @@ for _k in (
 ):
     os.environ.setdefault(_k, "x")
 
+# One per line: keeps diffs to a single line when a module is added or removed,
+# and keeps any one line's entropy low enough that secret scanners don't read a
+# run of dotted import paths as a high-entropy credential.
 CORE_MODULES = [
-    "config.loader", "config.default",
+    "config.loader",
+    "config.default",
     "main",
-    "api.v1.messages", "api.v1.conversations", "api.v1.graph",
+    "api.v1.messages",
+    "api.v1.conversations",
+    "api.v1.graph",
     "api.v1.interpretations",
-    "services.extraction", "services.graph_service", "services.response_gen",
-    "services.clustering", "services.relations", "services.bridges",
-    "services.interpretation", "services.cluster_similarity",
-    "services.maintenance", "services.gates", "services.dynamics",
-    "services.consolidation", "services.prediction", "services.uptake",
+    "services.extraction",
+    "services.graph_service",
+    "services.response_gen",
+    "services.clustering",
+    "services.relations",
+    "services.bridges",
+    "services.interpretation",
+    "services.cluster_similarity",
+    "services.maintenance",
+    "services.gates",
+    "services.dynamics",
+    "services.consolidation",
+    "services.prediction",
+    "services.uptake",
     "services.steering",
-    "schemas.graph", "schemas.message", "schemas.interpretation", "schemas.interest",
-    "db.neo4j", "db.qdrant", "llm.prompts",
+    "schemas.graph",
+    "schemas.message",
+    "schemas.interpretation",
+    "schemas.interest",
+    "db.neo4j",
+    "db.qdrant",
+    "llm.prompts",
 ]
 
 _CHECKS = []
@@ -70,7 +90,11 @@ def imports():
 def routes():
     """critical API routes are wired"""
     main = importlib.import_module("main")
-    paths = [getattr(r, "path", "") for r in main.app.routes]
+    # Read paths from the OpenAPI schema, not app.routes. Newer FastAPI keeps an
+    # included router as a single opaque wrapper object with no `.path`, so
+    # walking app.routes finds only the four built-in docs endpoints and reports
+    # every real route missing. The schema is the supported way to ask.
+    paths = list(main.app.openapi()["paths"])
     need = ["/messages", "/graph/{user_id}", "/nodes/{node_id}/interpretations"]
     missing = [n for n in need if not any(n in p for p in paths)]
     assert not missing, f"missing routes: {missing}"
